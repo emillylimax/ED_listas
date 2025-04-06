@@ -1,42 +1,43 @@
-// class Pilha {
-//     constructor(size = 5) {
-//         this.dados = [];
-//         this.size = size;
-//         this.topo = 0;
-//     }
-//     push(elemento) {
-//         if (this.isFull()) {
-//             throw new Error("Stack Overflow");
-//         }
-//         this.dados[this.topo] = elemento;
-//         this.topo++;
-//     }
-//     pop() {
-//         if (this.isEmpty()) {
-//             throw new Error("Stack underflow");
-//         }
-//         this.topo--;
-//     }
-//     top() {
-//         if (!this.isEmpty()) {
-//             return this.dados[this.topo - 1];
-//         }
-//     }
-//     isEmpty() {
-//         return this.length() === 0;
-//     }
-//     isFull() {
-//         return this.length() === this.size;
-//     }
-//     toString() { }
-//     clear() {
-//         this.topo = 0;
-//     }
-//     length() {
-//         return this.topo;
-//     }
-// }
-// export default Pilha;
+class Pilha {
+    constructor(size = 5) {
+        this.dados = [];
+        this.size = size;
+        this.topo = 0;
+    }
+    push(elemento) {
+        if (this.isFull()) {
+            throw new Error("Stack Overflow");
+        }
+        this.dados[this.topo] = elemento;
+        this.topo++;
+    }
+    pop() {
+        if (this.isEmpty()) {
+            throw new Error("Stack underflow");
+        }
+        this.topo--;
+        return this.dados[this.topo];
+    }
+    top() {
+        if (!this.isEmpty()) {
+            return this.dados[this.topo - 1];
+        }
+    }
+    isEmpty() {
+        return this.length() === 0;
+    }
+    isFull() {
+        return this.length() === this.size;
+    }
+    toString() { }
+    clear() {
+        this.topo = 0;
+    }
+    length() {
+        return this.topo;
+    }
+}
+export default Pilha;
 
 
 
@@ -142,6 +143,100 @@
 
 // export default DuasPilhas;
 
-// // ____________________________________________
+// ____________________________________________
 
-// //Lista 1: Questão 3
+//Lista 1: Questão 3
+//Usei a classe Pilha que foi definida anteriormente
+//Só deu certo com array, com pilha auxiliar não funcionou
+
+export function trocaTopoBase(pilha) {
+    if (pilha.isEmpty() || pilha.length() === 1) {
+        return;
+    }
+
+    const tempArray = [];
+
+    while (!pilha.isEmpty()) {
+        tempArray.push(pilha.pop());
+    }
+
+    const base = tempArray[tempArray.length - 1];
+    const topo = tempArray[0];
+    tempArray[0] = base;
+    tempArray[tempArray.length - 1] = topo;
+
+    for (let i = tempArray.length - 1; i >= 0; i--) {
+        pilha.push(tempArray[i]);
+    }
+}
+
+// ____________________________________________
+
+//Lista 1: Questão 4
+
+// export function decimalParaBinario(numero){
+// const pilha = new Pilha();
+
+//     while (numero > 0) {
+//         const resto = numero % 2;
+//         pilha.push(resto);
+//         numero = (numero/2) | 0;
+//     }
+
+//     let binario = "";
+//     while (!pilha.isEmpty()){
+//         binario += pilha.pop();
+//     }
+
+//     return binario;
+// }
+// ____________________________________________
+
+//Lista 1: Questão 5 
+
+// export function verificaBemFormada(texto){
+//     const pilha = new Pilha ();
+//     for (let char of texto){ 
+//         if (char === '(' || char === '[') {
+//             pilha.push(char);
+//         } 
+//         else if (char === ')' || char === ']') {
+//             if (pilha.isEmpty()) {
+//                 return false;
+//         }
+
+//             const topo = pilha.pop();
+//             if ((char === ')' && topo !== '(') || (char === ']' && topo !== '[')){
+//                 return false;
+//             }
+//         }
+//     }
+
+// return pilha.isEmpty();
+// }
+
+// ____________________________________________
+//Lista 1: Questão 6
+
+export function verificaBemFormada(texto){
+    const pilha = new Pilha ();
+    for (let char of texto){ 
+        if (char === '(' || char === '[') {
+            pilha.push(char);
+        } 
+        else if (char === ')' || char === ']') {
+            if (pilha.isEmpty()) {
+                return false;
+        }
+
+            const topo = pilha.pop();
+            if ((char === ')' && topo !== '(') || (char === ']' && topo !== '[')){
+                return false;
+            }
+        }
+    }
+
+return pilha.isEmpty();
+}
+
+// ____________________________________________

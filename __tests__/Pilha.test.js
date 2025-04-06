@@ -100,4 +100,60 @@
 
 // // ____________________________________________
 
-//Lista 1: Questão 3
+// //Lista 1: Questão 3
+
+// import Pilha from "../src/Pilha";
+
+// import { trocaTopoBase } from "../src/Pilha";
+
+// let p; 
+// beforeEach(() => {
+//     p = new Pilha(5);
+// });
+
+// test('Trocar topo e base de uma pilha com vários elementos', () => {
+//     p.push(1);
+//     p.push(2);
+//     p.push(3);
+//     p.push(4); 
+
+//     trocaTopoBase(p);
+
+//     expect(p.pop()).toBe(1);
+//     expect(p.pop()).toBe(3);
+//     expect(p.pop()).toBe(2);
+//     expect(p.pop()).toBe(4); 
+// });
+
+// ____________________________________________
+
+//Lista 1: Questão 4
+
+// import Pilha from "../src/Pilha";
+
+// import { decimalParaBinario } from "../src/Pilha"; 
+
+// test("Conversor de decimal para binário", () => {
+//     expect(decimalParaBinario(10)).toBe("1010");
+//     expect(decimalParaBinario(15)).toBe("1111");
+//     expect(decimalParaBinario(2)).toBe("10");
+//     expect(decimalParaBinario(0)).toBe("");
+// });
+
+// ____________________________________________
+
+// Lista 1: Questão 5
+// import Pilha from "../src/Pilha";
+
+// import { verificaBemFormada } from "../src/Pilha"; 
+// test("Verificar sequência bem-formada de parênteses e colchetes", () => {
+//     expect(verificaBemFormada("[ ( ) [ ( ) ] ] ( )")).toBe(true); // Bem-formada
+//     expect(verificaBemFormada("( ( ) ]")).toBe(false);            // Malformada
+//     expect(verificaBemFormada("[ ( [ ] ) ]")).toBe(true);         // Bem-formada
+//     expect(verificaBemFormada("[(])")).toBe(false);               // Malformada
+//     expect(verificaBemFormada("")).toBe(true);                    // Sequência vazia é bem-formada
+// });
+
+// ____________________________________________
+
+// Lista 1: Questão 6
