@@ -1,6 +1,5 @@
 // import Pilha from "../src/Pilha";
 
-
 // let p;
 
 // beforeEach(() => {
@@ -40,7 +39,7 @@
 //     expect(p.length()).toBe(0);
 // })
 
-
+// ____________________________________________
 
 // //Lista 1: Questão 1
 // import { inverte } from "../src/Pilha";
@@ -49,7 +48,7 @@
 //     expect(inverte('ABACAXI')).toBe('IXACABA');
 // });
 
-// // ____________________________________________
+// ____________________________________________
 
 // //Lista 1: Questão 2
 // import DuasPilhas from "../src/Pilha";
@@ -157,3 +156,47 @@
 // ____________________________________________
 
 // Lista 1: Questão 6
+
+// ____________________________________________
+
+// Lista 1: Questão 7
+// import Pilha from "../src/Pilha";
+// import { removeDuplicados } from "../src/Pilha";
+
+// test("Remover duplicados de uma pilha", () => {
+//     const p = new Pilha(10);
+//     p.push(3);
+//     p.push(7);
+//     p.push(3);
+//     p.push(2);
+//     p.push(7);
+//     p.push(1);
+//     p.push(4);
+//     p.push(2);
+
+//     removeDuplicados(p);
+
+//     expect(p.pop()).toBe(4);
+//     expect(p.pop()).toBe(1);
+//     expect(p.pop()).toBe(2);
+//     expect(p.pop()).toBe(7);
+//     expect(p.pop()).toBe(3);
+//     expect(p.isEmpty()).toBe(true);
+// });
+
+// ____________________________________________
+
+//Lista 1: Questão 8
+
+// import { Pilha, PilhaDePratos } from "../src/Pilha";
+
+// test("Deve empilhar e desempilhar corretamente", () => {
+//     const pilhaDePratos = new PilhaDePratos(3);
+//     pilhaDePratos.empilha(5);
+//     pilhaDePratos.empilha(10);
+//     pilhaDePratos.empilha(15);
+//     pilhaDePratos.empilha(20);
+
+//     expect(pilhaDePratos.desempilha()).toBe(20);
+//     expect(pilhaDePratos.desempilha()).toBe(15);
+// });

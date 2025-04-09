@@ -1,45 +1,45 @@
-class Pilha {
-    constructor(size = 5) {
-        this.dados = [];
-        this.size = size;
-        this.topo = 0;
-    }
-    push(elemento) {
-        if (this.isFull()) {
-            throw new Error("Stack Overflow");
-        }
-        this.dados[this.topo] = elemento;
-        this.topo++;
-    }
-    pop() {
-        if (this.isEmpty()) {
-            throw new Error("Stack underflow");
-        }
-        this.topo--;
-        return this.dados[this.topo];
-    }
-    top() {
-        if (!this.isEmpty()) {
-            return this.dados[this.topo - 1];
-        }
-    }
-    isEmpty() {
-        return this.length() === 0;
-    }
-    isFull() {
-        return this.length() === this.size;
-    }
-    toString() { }
-    clear() {
-        this.topo = 0;
-    }
-    length() {
-        return this.topo;
-    }
-}
-export default Pilha;
+// export class Pilha {
+//     constructor(size = 5) {
+//         this.dados = [];
+//         this.size = size;
+//         this.topo = 0;
+//     }
+//     push(elemento) {
+//         if (this.isFull()) {
+//             throw new Error("Stack Overflow");
+//         }
+//         this.dados[this.topo] = elemento;
+//         this.topo++;
+//     }
+//     pop() {
+//         if (this.isEmpty()) {
+//             throw new Error("Stack underflow");
+//         }
+//         this.topo--;
+//         return this.dados[this.topo];
+//     }
+//     top() {
+//         if (!this.isEmpty()) {
+//             return this.dados[this.topo - 1];
+//         }
+//     }
+//     isEmpty() {
+//         return this.length() === 0;
+//     }
+//     isFull() {
+//         return this.length() === this.size;
+//     }
+//     toString() { }
+//     clear() {
+//         this.topo = 0;
+//     }
+//     length() {
+//         return this.topo;
+//     }
+// }
+// // export default Pilha;
 
-
+// ____________________________________________
 
 // //Lista 1: Questão 1
 // class Pilha {
@@ -149,26 +149,26 @@ export default Pilha;
 //Usei a classe Pilha que foi definida anteriormente
 //Só deu certo com array, com pilha auxiliar não funcionou
 
-export function trocaTopoBase(pilha) {
-    if (pilha.isEmpty() || pilha.length() === 1) {
-        return;
-    }
+// export function trocaTopoBase(pilha) {
+//     if (pilha.isEmpty() || pilha.length() === 1) {
+//         return;
+//     }
 
-    const tempArray = [];
+//     const tempArray = [];
 
-    while (!pilha.isEmpty()) {
-        tempArray.push(pilha.pop());
-    }
+//     while (!pilha.isEmpty()) {
+//         tempArray.push(pilha.pop());
+//     }
 
-    const base = tempArray[tempArray.length - 1];
-    const topo = tempArray[0];
-    tempArray[0] = base;
-    tempArray[tempArray.length - 1] = topo;
+//     const base = tempArray[tempArray.length - 1];
+//     const topo = tempArray[0];
+//     tempArray[0] = base;
+//     tempArray[tempArray.length - 1] = topo;
 
-    for (let i = tempArray.length - 1; i >= 0; i--) {
-        pilha.push(tempArray[i]);
-    }
-}
+//     for (let i = tempArray.length - 1; i >= 0; i--) {
+//         pilha.push(tempArray[i]);
+//     }
+// }
 
 // ____________________________________________
 
@@ -218,25 +218,70 @@ export function trocaTopoBase(pilha) {
 // ____________________________________________
 //Lista 1: Questão 6
 
-export function verificaBemFormada(texto){
-    const pilha = new Pilha ();
-    for (let char of texto){ 
-        if (char === '(' || char === '[') {
-            pilha.push(char);
-        } 
-        else if (char === ')' || char === ']') {
-            if (pilha.isEmpty()) {
-                return false;
-        }
+// ____________________________________________
 
-            const topo = pilha.pop();
-            if ((char === ')' && topo !== '(') || (char === ']' && topo !== '[')){
-                return false;
-            }
-        }
-    }
+//Lista 1: Questão 7
 
-return pilha.isEmpty();
-}
+// export function removeDuplicados(pilha) {
+//     const vistos = new Set(); 
+//     const tempArray = [];
+
+//     const arrayTemp = [];
+//     while (!pilha.isEmpty()) {
+//         arrayTemp.push(pilha.pop());
+//     }
+
+//     for (let i = arrayTemp.length - 1; i >= 0; i--) {
+//         const elemento = arrayTemp[i];
+//         if (!vistos.has(elemento)) {
+//             vistos.add(elemento);
+//             tempArray.push(elemento); 
+//         }
+//     }
+
+//     for (let i = 0; i < tempArray.length; i++) {
+//         pilha.push(tempArray[i]);
+//     }
+// }
 
 // ____________________________________________
+
+//Lista 1: Questão 8
+
+// export class PilhaDePratos {
+//     constructor(capacidade) {
+//         this.capacidade = capacidade;
+//         this.pilhas = [];
+//     }
+
+//     empilha(x) {
+//         if (this.pilhas.length === 0 || this._ultimaPilha().isFull()) {
+//             const novaPilha = new Pilha(this.capacidade);
+//             this.pilhas.push(novaPilha);
+//         }
+//         this._ultimaPilha().push(x);
+//     }
+
+//     desempilha() {
+//         if (this.pilhas.length === 0) {
+//             return null;
+//         }
+//         const ultima = this._ultimaPilha();
+//         let valor;
+//         try {
+//             valor = ultima.pop();
+//         } catch (err) {
+//             return null;
+//         }
+//         if (ultima.isEmpty()) {
+//             this.pilhas.pop();
+//         }
+//         return valor;
+//     }
+
+//     _ultimaPilha() {
+//         return this.pilhas[this.pilhas.length - 1];
+//     }
+// }
+
+// export default PilhaDePratos;
