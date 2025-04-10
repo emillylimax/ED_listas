@@ -6,8 +6,6 @@ beforeEach(() => {
     f = new Fila();
 })
 
-
-
 test("Uma fila recem incializada está vazia, não está cheia e o tamanho é zero", () => {
     expect(f.isEmpty()).toBe(true);
     expect(f.isFull()).toBe(false);
@@ -47,4 +45,20 @@ test('Testando as propriedades de uma fila circular', () => {
 })
 
 
+// //Lista 2: Questão 1
+// import { PilhaComDuasFilas } from "../src/Pilha";
 
+// let pilha;
+
+// beforeEach(() => {
+//     pilha = new PilhaComDuasFilas();
+// });
+
+// test("A pilha deve estar vazia inicialmente", () => {
+//     expect(pilha.isEmpty()).toBe(true);
+//     expect(pilha.size()).toBe(0);
+// });
+
+// test("Pop em pilha vazia deve lançar erro", () => {
+//     expect(() => pilha.pop()).toThrow("Pilha vazia");
+// });
